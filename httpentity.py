@@ -1,5 +1,8 @@
-
+#!/usr/bin/env python3
 import os, sys
+
+
+path = os.getcwd().replace("\\", "/")
 
 def check_file(file_name):
     file_name = file_name.translate({ord(i): None for i in '!#@{}[]<>=+£$%^&*()?|,;:/\\\'\"'})
@@ -8,7 +11,7 @@ def check_file(file_name):
         file_name = file_name[0:index]
     elif index == 0:
         file_name = file_name[1:]
-    file_name += ".log"    
+    file_name += ".json"    
     return file_name
     
         
