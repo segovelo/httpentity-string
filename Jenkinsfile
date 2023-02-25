@@ -21,7 +21,7 @@ pipeline {
                 echo "Testing..."
                 sh '''
                 echo "Testing http-entity.py program..."
-                python3 httpentity.py test
+                python3 httpentity.py
                 '''
             }
         }
