@@ -2,7 +2,7 @@
 import os 
 import sys
 
-def fizzbuzz(n):
+def fizzbuzz(n:int):
     if n == 0: return
     fizzbuzz(n-1)
     if n%15 == 0:
