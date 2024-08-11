@@ -3,27 +3,40 @@ import os
 import sys
 
 def isPrime(n :int):
-    for i in range(2,n//2+1):
-        if n%i == 0: return False
+    j = 2
+    factor = int(n//j)
+    #for i in range(2,n//2+1):
+    while factor > 1:
+        j += 1
+        if n%factor == 0: return False
+        else: factor = int(n//j)
     return True
 
 def primes(n :int):
     primeList = []
-    prime = n//2
+    j = 2
+    factor = int(n//j)
     done = False
     counter = 0
-    while prime > 1 and not done:
+    while factor > 1 and not done:
+        j = 2
         counter += 1
         done = True
-        for i in range(prime,1,-1):
+        #for i in range(factor,1,-1):
+        while factor > 1:
             counter += 1
-            if n%i==0 and isPrime(i):               
-                primeList.insert(0,i)
-                n /= i
-                if n>2: prime = int(n//2)
-                else: prime=int(n)
-                done = False                                    
-                break        
+            j += 1
+            if n%factor==0 and isPrime(factor):               
+                primeList.insert(0,factor)               
+                n /= factor
+                if n>2: factor = int(n//2)
+                else: factor=int(n)
+                #done = False                                    
+                break
+            else:
+                factor = int(n//j)
+
+    if done: primeList.insert(0,int(n))
     print(counter)
     return primeList
 
@@ -35,6 +48,8 @@ def primes(n :int):
 # else:
 #     print("Enter a valid positive number ... ")
 
-number = 1300
-print(primes(number))
+number = 600851475143
+#print(primes(number))
+print(isPrime(87625999))
+
 
